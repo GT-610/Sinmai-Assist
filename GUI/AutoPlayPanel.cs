@@ -11,43 +11,26 @@ public class AutoPlayPanel
         AutoPlay.DisableUpdate = GUILayout.Toggle(AutoPlay.DisableUpdate, "Disable Mode Update");
         if (GUILayout.Button("Critical (AP+)", MainGUI.Style.Button)) AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.Critical;
         if (GUILayout.Button("Perfect", MainGUI.Style.Button)) AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.Perfect;
-        if (GUILayout.Button("Great", MainGUI.Style.Button)) AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.Great;
-        if (GUILayout.Button("Good", MainGUI.Style.Button)) AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.Good;
-        if (GUILayout.Button("Random", MainGUI.Style.Button)) AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.Random;
-        if (GUILayout.Button("RandomAllPerfect", MainGUI.Style.Button)) AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.RandomAllPerfect;
-        if (GUILayout.Button("RandomFullComboPlus", MainGUI.Style.Button)) AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.RandomFullComboPlus;
-        if (GUILayout.Button("RandomFullCombo", MainGUI.Style.Button)) AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.RandomFullCombo;
-        if (GUILayout.Button("None", MainGUI.Style.Button)) AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.None;
-    }
 
-    // 新增方法：检测键盘输入
-    public static void Update()
-    {
-        if (DebugInput.GetKeyDown(KeyCode.G))
-        {
-            AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.RandomAllPerfect;
-        }
-
-        // 新增按键检测逻辑
-        if (DebugInput.GetKeyDown(KeyCode.O))
-        {
+        if (GUILayout.Button("Great", MainGUI.Style.Button) || DebugInput.GetKeyDown(KeyCode.O))
             AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.Great;
-        }
-        if (DebugInput.GetKeyDown(KeyCode.P))
-        {
+
+        if (GUILayout.Button("Good", MainGUI.Style.Button) || DebugInput.GetKeyDown(KeyCode.P))
             AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.Good;
-        }
-        if (DebugInput.GetKeyDown(KeyCode.N))
-        {
-            AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.None;
-        }
-        if (DebugInput.GetKeyDown(KeyCode.J))
-        {
+
+        if (GUILayout.Button("Random", MainGUI.Style.Button) || DebugInput.GetKeyDown(KeyCode.K))
+            AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.Random;
+
+        if (GUILayout.Button("RandomAllPerfect", MainGUI.Style.Button) || DebugInput.GetKeyDown(KeyCode.G))
+            AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.RandomAllPerfect;
+
+        if (GUILayout.Button("RandomFullComboPlus", MainGUI.Style.Button) || DebugInput.GetKeyDown(KeyCode.H))
             AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.RandomFullComboPlus;
-        }
-        if (DebugInput.GetKeyDown(KeyCode.K))
-        {
+
+        if (GUILayout.Button("RandomFullCombo", MainGUI.Style.Button) || DebugInput.GetKeyDown(KeyCode.J))
             AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.RandomFullCombo;
-        }
+
+        if (GUILayout.Button("None", MainGUI.Style.Button) || DebugInput.GetKeyDown(KeyCode.N))
+            AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.None;
     }
 }
