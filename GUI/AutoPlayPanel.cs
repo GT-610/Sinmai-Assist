@@ -1,4 +1,4 @@
-﻿using SinmaiAssist.Cheat;
+using SinmaiAssist.Cheat;
 using UnityEngine;
 
 namespace SinmaiAssist.GUI;
@@ -18,5 +18,36 @@ public class AutoPlayPanel
         if (GUILayout.Button("RandomFullComboPlus", MainGUI.Style.Button)) AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.RandomFullComboPlus;
         if (GUILayout.Button("RandomFullCombo", MainGUI.Style.Button)) AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.RandomFullCombo;
         if (GUILayout.Button("None", MainGUI.Style.Button)) AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.None;
+    }
+
+    // 新增方法：检测键盘输入
+    public static void Update()
+    {
+        if (DebugInput.GetKeyDown(KeyCode.G))
+        {
+            AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.RandomAllPerfect;
+        }
+
+        // 新增按键检测逻辑
+        if (DebugInput.GetKeyDown(KeyCode.O))
+        {
+            AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.Great;
+        }
+        if (DebugInput.GetKeyDown(KeyCode.P))
+        {
+            AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.Good;
+        }
+        if (DebugInput.GetKeyDown(KeyCode.N))
+        {
+            AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.None;
+        }
+        if (DebugInput.GetKeyDown(KeyCode.J))
+        {
+            AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.RandomFullComboPlus;
+        }
+        if (DebugInput.GetKeyDown(KeyCode.K))
+        {
+            AutoPlay.autoPlayMode = AutoPlay.AutoPlayMode.RandomFullCombo;
+        }
     }
 }
